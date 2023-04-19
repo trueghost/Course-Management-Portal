@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CMPModelStoreContainer" CdmEntityContainer="CMPEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="CMPModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="CMPModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUNTRies">
+      <EntityTypeMapping TypeName="CMPModel.COUNTRy">
+        <MappingFragment StoreEntitySet="COUNTRies">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUNTRies1">
+      <EntityTypeMapping TypeName="CMPModel.COUNTRY1">
+        <MappingFragment StoreEntitySet="COUNTRY">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseDocuments">
+      <EntityTypeMapping TypeName="CMPModel.CourseDocument">
+        <MappingFragment StoreEntitySet="CourseDocuments">
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseImages">
+      <EntityTypeMapping TypeName="CMPModel.CourseImage">
+        <MappingFragment StoreEntitySet="CourseImages">
+          <ScalarProperty Name="CourseImageId" ColumnName="CourseImageId" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseMasters">
+      <EntityTypeMapping TypeName="CMPModel.CourseMaster">
+        <MappingFragment StoreEntitySet="CourseMaster">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+          <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+          <ScalarProperty Name="Overview" ColumnName="Overview" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="Metatitle" ColumnName="Metatitle" />
+          <ScalarProperty Name="Metakeywords" ColumnName="Metakeywords" />
+          <ScalarProperty Name="Metadescription" ColumnName="Metadescription" />
+          <ScalarProperty Name="Uniquename" ColumnName="Uniquename" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Createddatetime" ColumnName="Createddatetime" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="Lastupdateddate" ColumnName="Lastupdateddate" />
+          <ScalarProperty Name="Lastupdateddatetime" ColumnName="Lastupdateddatetime" />
+          <ScalarProperty Name="Lastupdateduser" ColumnName="Lastupdateduser" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamSchedules">
+      <EntityTypeMapping TypeName="CMPModel.ExamSchedule">
+        <MappingFragment StoreEntitySet="ExamSchedule">
+          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Examdate" ColumnName="Examdate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MultiSubCategories">
+      <EntityTypeMapping TypeName="CMPModel.MultiSubCategory">
+        <MappingFragment StoreEntitySet="MultiSubCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderMasters">
+      <EntityTypeMapping TypeName="CMPModel.OrderMaster">
+        <MappingFragment StoreEntitySet="OrderMaster">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="Ordercode" ColumnName="Ordercode" />
+          <ScalarProperty Name="DateM" ColumnName="DateM" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Taxamount" ColumnName="Taxamount" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Mode" ColumnName="Mode" />
+          <ScalarProperty Name="EntityID" ColumnName="EntityID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+          <ScalarProperty Name="ResponseMessage" ColumnName="ResponseMessage" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParnerMasters">
+      <EntityTypeMapping TypeName="CMPModel.ParnerMaster">
+        <MappingFragment StoreEntitySet="ParnerMaster">
+          <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategories">
+      <EntityTypeMapping TypeName="CMPModel.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategory">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CMPModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingSchedules">
+      <EntityTypeMapping TypeName="CMPModel.TrainingSchedule">
+        <MappingFragment StoreEntitySet="TrainingSchedule">
+          <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Enddate" ColumnName="Enddate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CMPModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddCourseImages" FunctionName="CMPModel.Store.AddCourseImages" />
+    <FunctionImportMapping FunctionImportName="DeleteCourseImages" FunctionName="CMPModel.Store.DeleteCourseImages" />
+    <FunctionImportMapping FunctionImportName="DeleteDocument" FunctionName="CMPModel.Store.DeleteDocument" />
+    <FunctionImportMapping FunctionImportName="DeleteExam" FunctionName="CMPModel.Store.DeleteExam" />
+    <FunctionImportMapping FunctionImportName="Deletetraining" FunctionName="CMPModel.Store.Deletetraining" />
+    <FunctionImportMapping FunctionImportName="FetchAllBootcamps" FunctionName="CMPModel.Store.FetchAllBootcamps">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchAllBootcamps_Result">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Overview" ColumnName="Overview" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+          <ScalarProperty Name="ExamCount" ColumnName="ExamCount" />
+          <ScalarProperty Name="Training" ColumnName="Training" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchAllSubCategory" FunctionName="CMPModel.Store.FetchAllSubCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchAllSubCategory_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="tset" ColumnName="tset" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchAllSubCategoryWithOutStatus" FunctionName="CMPModel.Store.FetchAllSubCategoryWithOutStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchAllSubCategoryWithOutStatus_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchAllTrendingCourses" FunctionName="CMPModel.Store.FetchAllTrendingCourses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchAllTrendingCourses_Result">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+          <ScalarProperty Name="ExamCount" ColumnName="ExamCount" />
+          <ScalarProperty Name="Training" ColumnName="Training" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchCourseDetailsBasedOnCourseID" FunctionName="CMPModel.Store.FetchCourseDetailsBasedOnCourseID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchCourseDetailsBasedOnCourseID_Result">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+          <ScalarProperty Name="Overview" ColumnName="Overview" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="Metatitle" ColumnName="Metatitle" />
+          <ScalarProperty Name="Metakeywords" ColumnName="Metakeywords" />
+          <ScalarProperty Name="Metadescription" ColumnName="Metadescription" />
+          <ScalarProperty Name="Uniquename" ColumnName="Uniquename" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Createddatetime" ColumnName="Createddatetime" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="Lastupdateddate" ColumnName="Lastupdateddate" />
+          <ScalarProperty Name="Lastupdateddatetime" ColumnName="Lastupdateddatetime" />
+          <ScalarProperty Name="Lastupdateduser" ColumnName="Lastupdateduser" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchCourseMaster" FunctionName="CMPModel.Store.FetchCourseMaster">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchCourseMaster_Result">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+          <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+          <ScalarProperty Name="Overview" ColumnName="Overview" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="Metatitle" ColumnName="Metatitle" />
+          <ScalarProperty Name="Metakeywords" ColumnName="Metakeywords" />
+          <ScalarProperty Name="Metadescription" ColumnName="Metadescription" />
+          <ScalarProperty Name="Uniquename" ColumnName="Uniquename" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Createddatetime" ColumnName="Createddatetime" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="Lastupdateddate" ColumnName="Lastupdateddate" />
+          <ScalarProperty Name="Lastupdateddatetime" ColumnName="Lastupdateddatetime" />
+          <ScalarProperty Name="Lastupdateduser" ColumnName="Lastupdateduser" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchCoursesToWebsite" FunctionName="CMPModel.Store.FetchCoursesToWebsite">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchCoursesToWebsite_Result">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+          <ScalarProperty Name="ExamCount" ColumnName="ExamCount" />
+          <ScalarProperty Name="Training" ColumnName="Training" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchDocumentDetailsBasedOnCourseID" FunctionName="CMPModel.Store.FetchDocumentDetailsBasedOnCourseID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchDocumentDetailsBasedOnCourseID_Result">
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchExamDetailsBasedOnCourseID" FunctionName="CMPModel.Store.FetchExamDetailsBasedOnCourseID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchExamDetailsBasedOnCourseID_Result">
+          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Examdate" ColumnName="Examdate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchTrainingDetailsBasedOnCourseID" FunctionName="CMPModel.Store.FetchTrainingDetailsBasedOnCourseID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchTrainingDetailsBasedOnCourseID_Result">
+          <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Enddate" ColumnName="Enddate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertCourseMaster" FunctionName="CMPModel.Store.InsertCourseMaster" />
+    <FunctionImportMapping FunctionImportName="InsertDocument" FunctionName="CMPModel.Store.InsertDocument" />
+    <FunctionImportMapping FunctionImportName="InsertExam" FunctionName="CMPModel.Store.InsertExam" />
+    <FunctionImportMapping FunctionImportName="InsertTraining" FunctionName="CMPModel.Store.InsertTraining" />
+    <FunctionImportMapping FunctionImportName="ListCourseImages" FunctionName="CMPModel.Store.ListCourseImages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.ListCourseImages_Result">
+          <ScalarProperty Name="CourseImageId" ColumnName="CourseImageId" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchCourse" FunctionName="CMPModel.Store.SearchCourse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.SearchCourse_Result">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchMultiSubCategory" FunctionName="CMPModel.Store.SearchMultiSubCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.SearchMultiSubCategory_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CMPModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="Sp_Create_Category" FunctionName="CMPModel.Store.Sp_Create_Category" />
+    <FunctionImportMapping FunctionImportName="SP_Create_Partner" FunctionName="CMPModel.Store.SP_Create_Partner" />
+    <FunctionImportMapping FunctionImportName="Sp_Create_SubCategory" FunctionName="CMPModel.Store.Sp_Create_SubCategory" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CMPModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CMPModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="SP_FetchAllSubCategory" FunctionName="CMPModel.Store.SP_FetchAllSubCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.SP_FetchAllSubCategory_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Fetchcategorylist" FunctionName="CMPModel.Store.sp_Fetchcategorylist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.sp_Fetchcategorylist_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_FetchCourses" FunctionName="CMPModel.Store.SP_FetchCourses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.SP_FetchCourses_Result">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="CMPModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="CMPModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CMPModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="Sp_Update_Category" FunctionName="CMPModel.Store.Sp_Update_Category" />
+    <FunctionImportMapping FunctionImportName="SP_Update_Partner" FunctionName="CMPModel.Store.SP_Update_Partner" />
+    <FunctionImportMapping FunctionImportName="Sp_Update_SubCategory" FunctionName="CMPModel.Store.Sp_Update_SubCategory" />
+    <FunctionImportMapping FunctionImportName="Sp_UpdateToggle" FunctionName="CMPModel.Store.Sp_UpdateToggle" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CMPModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="spCheckLoginUser" FunctionName="CMPModel.Store.spCheckLoginUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.spCheckLoginUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spFetchAllSubCategory" FunctionName="CMPModel.Store.spFetchAllSubCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.spFetchAllSubCategory_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spFetchImageDetailsBasedOnCourseID" FunctionName="CMPModel.Store.spFetchImageDetailsBasedOnCourseID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.spFetchImageDetailsBasedOnCourseID_Result">
+          <ScalarProperty Name="CourseImageId" ColumnName="CourseImageId" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spFetchSubCategoryByCategoryID" FunctionName="CMPModel.Store.spFetchSubCategoryByCategoryID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.spFetchSubCategoryByCategoryID_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSearchCourse" FunctionName="CMPModel.Store.spSearchCourse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.spSearchCourse_Result">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+          <ScalarProperty Name="Trending" ColumnName="Trending" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSelectAllCountry" FunctionName="CMPModel.Store.spSelectAllCountry">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.spSelectAllCountry_Result">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUpdateCategoryStatus" FunctionName="CMPModel.Store.spUpdateCategoryStatus" />
+    <FunctionImportMapping FunctionImportName="spUpdateCourseMasterStatus" FunctionName="CMPModel.Store.spUpdateCourseMasterStatus" />
+    <FunctionImportMapping FunctionImportName="spUpdateCourseOnlineStatus" FunctionName="CMPModel.Store.spUpdateCourseOnlineStatus" />
+    <FunctionImportMapping FunctionImportName="spUpdatePartnerStatus" FunctionName="CMPModel.Store.spUpdatePartnerStatus" />
+    <FunctionImportMapping FunctionImportName="spUpdateSubCategoryStatus" FunctionName="CMPModel.Store.spUpdateSubCategoryStatus" />
+    <FunctionImportMapping FunctionImportName="UpdateCourseMaster" FunctionName="CMPModel.Store.UpdateCourseMaster" />
+    <FunctionImportMapping FunctionImportName="UpdateOverview" FunctionName="CMPModel.Store.UpdateOverview" />
+    <FunctionImportMapping FunctionImportName="FetchAllExamDetails" FunctionName="CMPModel.Store.FetchAllExamDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchAllExamDetails_Result">
+          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Examdate" ColumnName="Examdate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+          <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchAllImages" FunctionName="CMPModel.Store.FetchAllImages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchAllImages_Result">
+          <ScalarProperty Name="CourseImageId" ColumnName="CourseImageId" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchAllDocs" FunctionName="CMPModel.Store.FetchAllDocs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMPModel.FetchAllDocs_Result">
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Update_Exam" FunctionName="CMPModel.Store.Sp_Update_Exam" />
+    <FunctionImportMapping FunctionImportName="ChangeCategoryStatus" FunctionName="CMPModel.Store.ChangeCategoryStatus" />
+  </EntityContainerMapping>
+</Mapping>

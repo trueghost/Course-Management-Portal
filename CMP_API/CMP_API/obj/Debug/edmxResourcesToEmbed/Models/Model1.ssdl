@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdatedUser" Type="int" />
+    <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="Is_Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="COUNTRies">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryCode" Type="nvarchar(max)" />
+    <Property Name="CountryName" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="COUNTRY">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryCode" Type="varchar" MaxLength="4" />
+    <Property Name="CountryName" Type="varchar" MaxLength="100" />
+    <Property Name="Status" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="CourseDocuments">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="200" />
+    <Property Name="Path" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="CreatedUser" Type="int" />
+  </EntityType>
+  <EntityType Name="CourseImages">
+    <Key>
+      <PropertyRef Name="CourseImageId" />
+    </Key>
+    <Property Name="CourseImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="200" />
+    <Property Name="ImagePath" Type="varchar" MaxLength="300" />
+    <Property Name="IsDefault" Type="tinyint" />
+    <Property Name="CreatedUser" Type="int" />
+    <Property Name="CreatedDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="CourseMaster">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="300" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="SubcategoryID" Type="int" />
+    <Property Name="PartnerID" Type="int" />
+    <Property Name="Overview" Type="nvarchar(max)" />
+    <Property Name="Benefits" Type="nvarchar(max)" />
+    <Property Name="Metatitle" Type="varchar" MaxLength="300" />
+    <Property Name="Metakeywords" Type="varchar" MaxLength="300" />
+    <Property Name="Metadescription" Type="varchar" MaxLength="500" />
+    <Property Name="Uniquename" Type="varchar" MaxLength="320" />
+    <Property Name="Createddate" Type="date" />
+    <Property Name="Createddatetime" Type="datetime2" Precision="7" />
+    <Property Name="CreatedUser" Type="int" />
+    <Property Name="Lastupdateddate" Type="date" />
+    <Property Name="Lastupdateddatetime" Type="datetime2" Precision="7" />
+    <Property Name="Lastupdateduser" Type="int" />
+    <Property Name="Trending" Type="tinyint" />
+    <Property Name="ShowOnline" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ExamSchedule">
+    <Key>
+      <PropertyRef Name="ExamID" />
+    </Key>
+    <Property Name="ExamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="int" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="Location" Type="varchar" MaxLength="100" />
+    <Property Name="Examdate" Type="date" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdateduser" Type="int" />
+    <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="MultiSubCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="SubCategoryID" Type="int" />
+    <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdatedUser" Type="int" />
+    <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="OrderMaster">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ordercode" Type="varchar" MaxLength="20" />
+    <Property Name="DateM" Type="date" />
+    <Property Name="TotalAmount" Type="money" />
+    <Property Name="Taxamount" Type="money" />
+    <Property Name="CourseID" Type="int" />
+    <Property Name="Mode" Type="tinyint" />
+    <Property Name="EntityID" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="Phonenumber" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="Remarks" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="ResponseCode" Type="varchar" MaxLength="20" />
+    <Property Name="ResponseMessage" Type="varchar" MaxLength="1000" />
+    <Property Name="TransactionID" Type="int" />
+  </EntityType>
+  <EntityType Name="ParnerMaster">
+    <Key>
+      <PropertyRef Name="PartnerID" />
+    </Key>
+    <Property Name="PartnerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerName" Type="varchar" MaxLength="100" />
+    <Property Name="Logo" Type="varchar" MaxLength="200" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="Is_Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubCategoryName" Type="varchar" MaxLength="200" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdatedUser" Type="int" />
+    <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="Is_Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TrainingSchedule">
+    <Key>
+      <PropertyRef Name="TrainingID" />
+    </Key>
+    <Property Name="TrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="int" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="Location" Type="varchar" MaxLength="100" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="Enddate" Type="date" />
+    <Property Name="Duration" Type="varchar" MaxLength="100" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdateduser" Type="int" />
+    <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+    <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <Association Name="FK_CourseMaster_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="CourseMaster">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseMaster_ParnerMaster">
+    <End Role="ParnerMaster" Type="Self.ParnerMaster" Multiplicity="0..1" />
+    <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParnerMaster">
+        <PropertyRef Name="PartnerID" />
+      </Principal>
+      <Dependent Role="CourseMaster">
+        <PropertyRef Name="PartnerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseMaster_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="CourseMaster">
+        <PropertyRef Name="SubcategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddCourseImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="ImagePath" Type="varchar" Mode="In" />
+    <Parameter Name="IsDefault" Type="tinyint" Mode="In" />
+    <Parameter Name="CreatedUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ChangeCategoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteCourseImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseImageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocumentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExamID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Deletetraining" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TrainingID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchAllBootcamps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchAllDocs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchAllExamDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchAllImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchAllSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchAllSubCategoryWithOutStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchAllTrendingCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="Category" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchCourseDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchCourseMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchCoursesToWebsite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Keyword" Type="varchar" Mode="In" />
+    <Parameter Name="Category" Type="int" Mode="In" />
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchDocumentDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchExamDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchTrainingDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="InsertCourseMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="SubcategoryID" Type="int" Mode="In" />
+    <Parameter Name="PartnerID" Type="int" Mode="In" />
+    <Parameter Name="Overview" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Benefits" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Metatitle" Type="varchar" Mode="In" />
+    <Parameter Name="Metakeywords" Type="varchar" Mode="In" />
+    <Parameter Name="Metadescription" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="Trending" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="InsertDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="Path" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="CountryID" Type="int" Mode="In" />
+    <Parameter Name="Location" Type="varchar" Mode="In" />
+    <Parameter Name="Examdate" Type="date" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertTraining" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="CountryID" Type="int" Mode="In" />
+    <Parameter Name="Location" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="date" Mode="In" />
+    <Parameter Name="Enddate" Type="date" Mode="In" />
+    <Parameter Name="Duration" Type="varchar" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ListCourseImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SearchCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="SubcategoryID" Type="int" Mode="In" />
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SearchMultiSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="Sp_Create_Category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CatName" Type="varchar" Mode="In" />
+    <Parameter Name="CatDes" Type="varchar" Mode="In" />
+    <Parameter Name="Create_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Updated_User" Type="int" Mode="In" />
+    <Parameter Name="Update_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+    <Parameter Name="Active" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_Create_Partner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Logo" Type="varchar" Mode="In" />
+    <Parameter Name="Active" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Sp_Create_SubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="CatId" Type="int" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="CreateUser" Type="int" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Active" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_FetchAllSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Fetchcategorylist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_FetchCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_Update_Category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CatId" Type="int" Mode="In" />
+    <Parameter Name="CatName" Type="varchar" Mode="In" />
+    <Parameter Name="Desc" Type="varchar" Mode="In" />
+    <Parameter Name="Updated_User" Type="int" Mode="In" />
+    <Parameter Name="Update_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Update_Exam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExamID" Type="int" Mode="In" />
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="CountryID" Type="int" Mode="In" />
+    <Parameter Name="Location" Type="varchar" Mode="In" />
+    <Parameter Name="Examdate" Type="date" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+    <Parameter Name="LastUpdateduser" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedDatetime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_Partner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PartnerId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Logo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_Update_SubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SubCatId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="CatId" Type="int" Mode="In" />
+    <Parameter Name="CreateUser" Type="int" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_UpdateToggle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Domain" Type="varchar" Mode="In" />
+    <Parameter Name="status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spCheckLoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spFetchAllSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spFetchImageDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spFetchSubCategoryByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spSearchCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="SubcategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spSelectAllCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spUpdateCategoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="spUpdateCourseMasterStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="Trending" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="spUpdateCourseOnlineStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="ShowOnline" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="spUpdatePartnerStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PartnerID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="spUpdateSubCategoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SubCategoryID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="UpdateCourseMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="SubcategoryID" Type="int" Mode="In" />
+    <Parameter Name="PartnerID" Type="int" Mode="In" />
+    <Parameter Name="Overview" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Benefits" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Metatitle" Type="varchar" Mode="In" />
+    <Parameter Name="Metakeywords" Type="varchar" Mode="In" />
+    <Parameter Name="Metadescription" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="Trending" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="UpdateOverview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <Parameter Name="Overview" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="CMPModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUNTRies" EntityType="Self.COUNTRies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUNTRY" EntityType="Self.COUNTRY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseDocuments" EntityType="Self.CourseDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseImages" EntityType="Self.CourseImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseMaster" EntityType="Self.CourseMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamSchedule" EntityType="Self.ExamSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MultiSubCategory" EntityType="Self.MultiSubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderMaster" EntityType="Self.OrderMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParnerMaster" EntityType="Self.ParnerMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrainingSchedule" EntityType="Self.TrainingSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CourseMaster_Category" Association="Self.FK_CourseMaster_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CourseMaster" EntitySet="CourseMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseMaster_ParnerMaster" Association="Self.FK_CourseMaster_ParnerMaster">
+      <End Role="ParnerMaster" EntitySet="ParnerMaster" />
+      <End Role="CourseMaster" EntitySet="CourseMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseMaster_SubCategory" Association="Self.FK_CourseMaster_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="CourseMaster" EntitySet="CourseMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

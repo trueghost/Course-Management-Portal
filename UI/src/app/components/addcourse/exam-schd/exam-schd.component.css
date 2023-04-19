@@ -1,0 +1,20 @@
+.Country,.loc,.date,.amt{
+  width: 500px !important;
+}
+.Country,.date{
+  margin-left: -100px !important;
+}
+.flex{
+  display: flex !important;
+}
+.loc{
+  margin-left: 100px !important;
+}
+
+.btn{
+  margin-left: 10px !important;
+}
+
+.amt{
+  margin-left: -150px;
+}

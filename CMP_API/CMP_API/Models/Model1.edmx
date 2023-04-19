@@ -1,0 +1,1980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CMPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="LastUpdatedUser" Type="int" />
+          <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="Is_Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="COUNTRies">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryCode" Type="nvarchar(max)" />
+          <Property Name="CountryName" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="COUNTRY">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="4" />
+          <Property Name="CountryName" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="CourseDocuments">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="200" />
+          <Property Name="Path" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="CreatedUser" Type="int" />
+        </EntityType>
+        <EntityType Name="CourseImages">
+          <Key>
+            <PropertyRef Name="CourseImageId" />
+          </Key>
+          <Property Name="CourseImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="200" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="300" />
+          <Property Name="IsDefault" Type="tinyint" />
+          <Property Name="CreatedUser" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="CourseMaster">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="300" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="SubcategoryID" Type="int" />
+          <Property Name="PartnerID" Type="int" />
+          <Property Name="Overview" Type="nvarchar(max)" />
+          <Property Name="Benefits" Type="nvarchar(max)" />
+          <Property Name="Metatitle" Type="varchar" MaxLength="300" />
+          <Property Name="Metakeywords" Type="varchar" MaxLength="300" />
+          <Property Name="Metadescription" Type="varchar" MaxLength="500" />
+          <Property Name="Uniquename" Type="varchar" MaxLength="320" />
+          <Property Name="Createddate" Type="date" />
+          <Property Name="Createddatetime" Type="datetime2" Precision="7" />
+          <Property Name="CreatedUser" Type="int" />
+          <Property Name="Lastupdateddate" Type="date" />
+          <Property Name="Lastupdateddatetime" Type="datetime2" Precision="7" />
+          <Property Name="Lastupdateduser" Type="int" />
+          <Property Name="Trending" Type="tinyint" />
+          <Property Name="ShowOnline" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ExamSchedule">
+          <Key>
+            <PropertyRef Name="ExamID" />
+          </Key>
+          <Property Name="ExamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="Location" Type="varchar" MaxLength="100" />
+          <Property Name="Examdate" Type="date" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="LastUpdateduser" Type="int" />
+          <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="MultiSubCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="SubCategoryID" Type="int" />
+          <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="LastUpdatedUser" Type="int" />
+          <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="Status" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="OrderMaster">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ordercode" Type="varchar" MaxLength="20" />
+          <Property Name="DateM" Type="date" />
+          <Property Name="TotalAmount" Type="money" />
+          <Property Name="Taxamount" Type="money" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="Mode" Type="tinyint" />
+          <Property Name="EntityID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="150" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="Phonenumber" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="ResponseCode" Type="varchar" MaxLength="20" />
+          <Property Name="ResponseMessage" Type="varchar" MaxLength="1000" />
+          <Property Name="TransactionID" Type="int" />
+        </EntityType>
+        <EntityType Name="ParnerMaster">
+          <Key>
+            <PropertyRef Name="PartnerID" />
+          </Key>
+          <Property Name="PartnerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartnerName" Type="varchar" MaxLength="100" />
+          <Property Name="Logo" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="Is_Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubCategoryName" Type="varchar" MaxLength="200" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="LastUpdatedUser" Type="int" />
+          <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="Is_Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TrainingSchedule">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="Location" Type="varchar" MaxLength="100" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="Enddate" Type="date" />
+          <Property Name="Duration" Type="varchar" MaxLength="100" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+          <Property Name="LastUpdateduser" Type="int" />
+          <Property Name="LastUpdatedDatetime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDatetime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <Association Name="FK_CourseMaster_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="CourseMaster">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseMaster_ParnerMaster">
+          <End Role="ParnerMaster" Type="Self.ParnerMaster" Multiplicity="0..1" />
+          <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParnerMaster">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="CourseMaster">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseMaster_SubCategory">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+          <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="CourseMaster">
+              <PropertyRef Name="SubcategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddCourseImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="ImagePath" Type="varchar" Mode="In" />
+          <Parameter Name="IsDefault" Type="tinyint" Mode="In" />
+          <Parameter Name="CreatedUser" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ChangeCategoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteCourseImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseImageId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ExamID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Deletetraining" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TrainingID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchAllBootcamps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PageNumber" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchAllDocs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FetchAllExamDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FetchAllImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FetchAllSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FetchAllSubCategoryWithOutStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FetchAllTrendingCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PageNumber" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="Category" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchCourseDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchCourseMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FetchCoursesToWebsite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Keyword" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="int" Mode="In" />
+          <Parameter Name="PageNumber" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchDocumentDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchExamDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchTrainingDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="InsertCourseMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="SubcategoryID" Type="int" Mode="In" />
+          <Parameter Name="PartnerID" Type="int" Mode="In" />
+          <Parameter Name="Overview" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Benefits" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Metatitle" Type="varchar" Mode="In" />
+          <Parameter Name="Metakeywords" Type="varchar" Mode="In" />
+          <Parameter Name="Metadescription" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Trending" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="InsertDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="Path" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="CountryID" Type="int" Mode="In" />
+          <Parameter Name="Location" Type="varchar" Mode="In" />
+          <Parameter Name="Examdate" Type="date" Mode="In" />
+          <Parameter Name="Amount" Type="money" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertTraining" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="CountryID" Type="int" Mode="In" />
+          <Parameter Name="Location" Type="varchar" Mode="In" />
+          <Parameter Name="StartDate" Type="date" Mode="In" />
+          <Parameter Name="Enddate" Type="date" Mode="In" />
+          <Parameter Name="Duration" Type="varchar" Mode="In" />
+          <Parameter Name="Amount" Type="money" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ListCourseImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SearchCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="SubcategoryID" Type="int" Mode="In" />
+          <Parameter Name="PageNumber" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SearchMultiSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="Sp_Create_Category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CatName" Type="varchar" Mode="In" />
+          <Parameter Name="CatDes" Type="varchar" Mode="In" />
+          <Parameter Name="Create_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Updated_User" Type="int" Mode="In" />
+          <Parameter Name="Update_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SP_Create_Partner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Logo" Type="varchar" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Sp_Create_SubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="CatId" Type="int" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreateUser" Type="int" Mode="In" />
+          <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_FetchAllSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_Fetchcategorylist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_FetchCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_Update_Category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CatId" Type="int" Mode="In" />
+          <Parameter Name="CatName" Type="varchar" Mode="In" />
+          <Parameter Name="Desc" Type="varchar" Mode="In" />
+          <Parameter Name="Updated_User" Type="int" Mode="In" />
+          <Parameter Name="Update_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Update_Exam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ExamID" Type="int" Mode="In" />
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="CountryID" Type="int" Mode="In" />
+          <Parameter Name="Location" Type="varchar" Mode="In" />
+          <Parameter Name="Examdate" Type="date" Mode="In" />
+          <Parameter Name="Amount" Type="money" Mode="In" />
+          <Parameter Name="LastUpdateduser" Type="int" Mode="In" />
+          <Parameter Name="LastUpdatedDatetime" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Partner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PartnerId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Logo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_Update_SubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SubCatId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="CatId" Type="int" Mode="In" />
+          <Parameter Name="CreateUser" Type="int" Mode="In" />
+          <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Sp_UpdateToggle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Domain" Type="varchar" Mode="In" />
+          <Parameter Name="status" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spCheckLoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spFetchAllSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spFetchImageDetailsBasedOnCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spFetchSubCategoryByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spSearchCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="SubcategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spSelectAllCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spUpdateCategoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="spUpdateCourseMasterStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="Trending" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="spUpdateCourseOnlineStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="ShowOnline" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="spUpdatePartnerStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PartnerID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="spUpdateSubCategoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SubCategoryID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="UpdateCourseMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="SubcategoryID" Type="int" Mode="In" />
+          <Parameter Name="PartnerID" Type="int" Mode="In" />
+          <Parameter Name="Overview" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Benefits" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Metatitle" Type="varchar" Mode="In" />
+          <Parameter Name="Metakeywords" Type="varchar" Mode="In" />
+          <Parameter Name="Metadescription" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Trending" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="UpdateOverview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+          <Parameter Name="Overview" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="CMPModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COUNTRies" EntityType="Self.COUNTRies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COUNTRY" EntityType="Self.COUNTRY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseDocuments" EntityType="Self.CourseDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseImages" EntityType="Self.CourseImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseMaster" EntityType="Self.CourseMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExamSchedule" EntityType="Self.ExamSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MultiSubCategory" EntityType="Self.MultiSubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderMaster" EntityType="Self.OrderMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParnerMaster" EntityType="Self.ParnerMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrainingSchedule" EntityType="Self.TrainingSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CourseMaster_Category" Association="Self.FK_CourseMaster_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CourseMaster" EntitySet="CourseMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseMaster_ParnerMaster" Association="Self.FK_CourseMaster_ParnerMaster">
+            <End Role="ParnerMaster" EntitySet="ParnerMaster" />
+            <End Role="CourseMaster" EntitySet="CourseMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseMaster_SubCategory" Association="Self.FK_CourseMaster_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="CourseMaster" EntitySet="CourseMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SubCategory" EntitySet="SubCategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="LastUpdatedUser" Type="Int32" />
+          <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <NavigationProperty Name="CourseMasters" Relationship="Self.FK_CourseMaster_Category" FromRole="Category" ToRole="CourseMaster" />
+          <NavigationProperty Name="SubCategories" Relationship="Self.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="COUNTRy">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="COUNTRY1">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CourseDocument">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="CreatedUser" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CourseImage">
+          <Key>
+            <PropertyRef Name="CourseImageId" />
+          </Key>
+          <Property Name="CourseImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IsDefault" Type="Byte" />
+          <Property Name="CreatedUser" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="CourseMaster">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="SubcategoryID" Type="Int32" />
+          <Property Name="PartnerID" Type="Int32" />
+          <Property Name="Overview" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Benefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Metatitle" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Metakeywords" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Metadescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Uniquename" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+          <Property Name="Createddate" Type="DateTime" Precision="0" />
+          <Property Name="Createddatetime" Type="DateTime" Precision="7" />
+          <Property Name="CreatedUser" Type="Int32" />
+          <Property Name="Lastupdateddate" Type="DateTime" Precision="0" />
+          <Property Name="Lastupdateddatetime" Type="DateTime" Precision="7" />
+          <Property Name="Lastupdateduser" Type="Int32" />
+          <Property Name="Trending" Type="Byte" />
+          <Property Name="ShowOnline" Type="Byte" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_CourseMaster_Category" FromRole="CourseMaster" ToRole="Category" />
+          <NavigationProperty Name="ParnerMaster" Relationship="Self.FK_CourseMaster_ParnerMaster" FromRole="CourseMaster" ToRole="ParnerMaster" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.FK_CourseMaster_SubCategory" FromRole="CourseMaster" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="ExamSchedule">
+          <Key>
+            <PropertyRef Name="ExamID" />
+          </Key>
+          <Property Name="ExamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Examdate" Type="DateTime" Precision="0" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="LastUpdateduser" Type="Int32" />
+          <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="MultiSubCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="LastUpdatedUser" Type="Int32" />
+          <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="Status" Type="Byte" />
+        </EntityType>
+        <EntityType Name="OrderMaster">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ordercode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateM" Type="DateTime" Precision="0" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Taxamount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="Mode" Type="Byte" />
+          <Property Name="EntityID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ResponseCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ResponseMessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ParnerMaster">
+          <Key>
+            <PropertyRef Name="PartnerID" />
+          </Key>
+          <Property Name="PartnerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Logo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <NavigationProperty Name="CourseMasters" Relationship="Self.FK_CourseMaster_ParnerMaster" FromRole="ParnerMaster" ToRole="CourseMaster" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="LastUpdatedUser" Type="Int32" />
+          <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
+          <NavigationProperty Name="CourseMasters" Relationship="Self.FK_CourseMaster_SubCategory" FromRole="SubCategory" ToRole="CourseMaster" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TrainingSchedule">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="Enddate" Type="DateTime" Precision="0" />
+          <Property Name="Duration" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+          <Property Name="LastUpdateduser" Type="Int32" />
+          <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+        </EntityType>
+        <Association Name="FK_CourseMaster_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="CourseMaster">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseMaster_ParnerMaster">
+          <End Role="ParnerMaster" Type="Self.ParnerMaster" Multiplicity="0..1" />
+          <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParnerMaster">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="CourseMaster">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseMaster_SubCategory">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+          <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="CourseMaster">
+              <PropertyRef Name="SubcategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CMPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="COUNTRies" EntityType="Self.COUNTRy" />
+          <EntitySet Name="COUNTRies1" EntityType="Self.COUNTRY1" />
+          <EntitySet Name="CourseDocuments" EntityType="Self.CourseDocument" />
+          <EntitySet Name="CourseImages" EntityType="Self.CourseImage" />
+          <EntitySet Name="CourseMasters" EntityType="Self.CourseMaster" />
+          <EntitySet Name="ExamSchedules" EntityType="Self.ExamSchedule" />
+          <EntitySet Name="MultiSubCategories" EntityType="Self.MultiSubCategory" />
+          <EntitySet Name="OrderMasters" EntityType="Self.OrderMaster" />
+          <EntitySet Name="ParnerMasters" EntityType="Self.ParnerMaster" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TrainingSchedules" EntityType="Self.TrainingSchedule" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_CourseMaster_Category" Association="Self.FK_CourseMaster_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="CourseMaster" EntitySet="CourseMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="SubCategory" EntitySet="SubCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseMaster_ParnerMaster" Association="Self.FK_CourseMaster_ParnerMaster">
+            <End Role="ParnerMaster" EntitySet="ParnerMasters" />
+            <End Role="CourseMaster" EntitySet="CourseMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseMaster_SubCategory" Association="Self.FK_CourseMaster_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="CourseMaster" EntitySet="CourseMasters" />
+          </AssociationSet>
+          <FunctionImport Name="AddCourseImages">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="ImagePath" Mode="In" Type="String" />
+            <Parameter Name="IsDefault" Mode="In" Type="Byte" />
+            <Parameter Name="CreatedUser" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteCourseImages">
+          <Parameter Name="CourseImageId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDocument">
+          <Parameter Name="DocumentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteExam">
+          <Parameter Name="ExamID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Deletetraining">
+          <Parameter Name="TrainingID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchAllBootcamps" ReturnType="Collection(CMPModel.FetchAllBootcamps_Result)">
+            <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchAllSubCategory" ReturnType="Collection(CMPModel.FetchAllSubCategory_Result)" />
+          <FunctionImport Name="FetchAllSubCategoryWithOutStatus" ReturnType="Collection(CMPModel.FetchAllSubCategoryWithOutStatus_Result)" />
+          <FunctionImport Name="FetchAllTrendingCourses" ReturnType="Collection(CMPModel.FetchAllTrendingCourses_Result)">
+            <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="Category" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchCourseDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.FetchCourseDetailsBasedOnCourseID_Result)">
+          <Parameter Name="CourseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchCourseMaster" ReturnType="Collection(CMPModel.FetchCourseMaster_Result)" />
+          <FunctionImport Name="FetchCoursesToWebsite" ReturnType="Collection(CMPModel.FetchCoursesToWebsite_Result)">
+            <Parameter Name="Keyword" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="Int32" />
+            <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchDocumentDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.FetchDocumentDetailsBasedOnCourseID_Result)">
+          <Parameter Name="CourseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchExamDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.FetchExamDetailsBasedOnCourseID_Result)">
+          <Parameter Name="CourseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchTrainingDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.FetchTrainingDetailsBasedOnCourseID_Result)">
+          <Parameter Name="CourseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCourseMaster" ReturnType="Collection(Int32)">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="SubcategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="PartnerID" Mode="In" Type="Int32" />
+            <Parameter Name="Overview" Mode="In" Type="String" />
+            <Parameter Name="Benefits" Mode="In" Type="String" />
+            <Parameter Name="Metatitle" Mode="In" Type="String" />
+            <Parameter Name="Metakeywords" Mode="In" Type="String" />
+            <Parameter Name="Metadescription" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Trending" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="InsertDocument" ReturnType="Collection(Int32)">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="Path" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertExam" ReturnType="Collection(Int32)">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="CountryID" Mode="In" Type="Int32" />
+            <Parameter Name="Location" Mode="In" Type="String" />
+            <Parameter Name="Examdate" Mode="In" Type="DateTime" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertTraining" ReturnType="Collection(Int32)">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="CountryID" Mode="In" Type="Int32" />
+            <Parameter Name="Location" Mode="In" Type="String" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Enddate" Mode="In" Type="DateTime" />
+            <Parameter Name="Duration" Mode="In" Type="String" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ListCourseImages" ReturnType="Collection(CMPModel.ListCourseImages_Result)">
+          <Parameter Name="CourseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SearchCourse" ReturnType="Collection(CMPModel.SearchCourse_Result)">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="SubcategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SearchMultiSubCategory" ReturnType="Collection(CMPModel.SearchMultiSubCategory_Result)" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Create_Category">
+            <Parameter Name="CatName" Mode="In" Type="String" />
+            <Parameter Name="CatDes" Mode="In" Type="String" />
+            <Parameter Name="Create_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Updated_User" Mode="In" Type="Int32" />
+            <Parameter Name="Update_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Status" Mode="In" Type="Int32" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Create_Partner">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Logo" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Create_SubCategory">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="CatId" Mode="In" Type="Int32" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreateUser" Mode="In" Type="Int32" />
+            <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_FetchAllSubCategory" ReturnType="Collection(CMPModel.SP_FetchAllSubCategory_Result)" />
+          <FunctionImport Name="sp_Fetchcategorylist" ReturnType="Collection(CMPModel.sp_Fetchcategorylist_Result)" />
+          <FunctionImport Name="SP_FetchCourses" ReturnType="Collection(CMPModel.SP_FetchCourses_Result)" />
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CMPModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CMPModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Update_Category">
+            <Parameter Name="CatId" Mode="In" Type="Int32" />
+            <Parameter Name="CatName" Mode="In" Type="String" />
+            <Parameter Name="Desc" Mode="In" Type="String" />
+            <Parameter Name="Updated_User" Mode="In" Type="Int32" />
+            <Parameter Name="Update_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Status" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Partner">
+            <Parameter Name="PartnerId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Logo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Update_SubCategory">
+            <Parameter Name="SubCatId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="CatId" Mode="In" Type="Int32" />
+            <Parameter Name="CreateUser" Mode="In" Type="Int32" />
+            <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_UpdateToggle">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Domain" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="spCheckLoginUser" ReturnType="Collection(CMPModel.spCheckLoginUser_Result)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spFetchAllSubCategory" ReturnType="Collection(CMPModel.spFetchAllSubCategory_Result)" />
+          <FunctionImport Name="spFetchImageDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.spFetchImageDetailsBasedOnCourseID_Result)">
+          <Parameter Name="CourseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spFetchSubCategoryByCategoryID" ReturnType="Collection(CMPModel.spFetchSubCategoryByCategoryID_Result)">
+          <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSearchCourse" ReturnType="Collection(CMPModel.spSearchCourse_Result)">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="SubcategoryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSelectAllCountry" ReturnType="Collection(CMPModel.spSelectAllCountry_Result)" />
+          <FunctionImport Name="spUpdateCategoryStatus">
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateCourseMasterStatus">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="Trending" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateCourseOnlineStatus">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="ShowOnline" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdatePartnerStatus">
+            <Parameter Name="PartnerID" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateSubCategoryStatus">
+            <Parameter Name="SubCategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateCourseMaster">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="SubcategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="PartnerID" Mode="In" Type="Int32" />
+            <Parameter Name="Overview" Mode="In" Type="String" />
+            <Parameter Name="Benefits" Mode="In" Type="String" />
+            <Parameter Name="Metatitle" Mode="In" Type="String" />
+            <Parameter Name="Metakeywords" Mode="In" Type="String" />
+            <Parameter Name="Metadescription" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Trending" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateOverview">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="Overview" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchAllExamDetails" ReturnType="Collection(CMPModel.FetchAllExamDetails_Result)" />
+          <FunctionImport Name="FetchAllImages" ReturnType="Collection(CMPModel.FetchAllImages_Result)" />
+          <FunctionImport Name="FetchAllDocs" ReturnType="Collection(CMPModel.FetchAllDocs_Result)" />
+          <FunctionImport Name="Sp_Update_Exam">
+            <Parameter Name="ExamID" Mode="In" Type="Int32" />
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+            <Parameter Name="CountryID" Mode="In" Type="Int32" />
+            <Parameter Name="Location" Mode="In" Type="String" />
+            <Parameter Name="Examdate" Mode="In" Type="DateTime" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="LastUpdateduser" Mode="In" Type="Int32" />
+            <Parameter Name="LastUpdatedDatetime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ChangeCategoryStatus" ReturnType="Collection(String)">
+          <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="FetchAllBootcamps_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="Overview" Nullable="true" />
+          <Property Type="Byte" Name="Trending" Nullable="true" />
+          <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+          <Property Type="Int32" Name="ExamCount" Nullable="true" />
+          <Property Type="Int32" Name="Training" Nullable="true" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="300" />
+        </ComplexType>
+        <ComplexType Name="FetchAllSubCategory_Result">
+          <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+          <Property Type="Byte" Name="Status" Nullable="true" />
+          <Property Type="String" Name="tset" Nullable="false" MaxLength="4" />
+        </ComplexType>
+        <ComplexType Name="FetchAllSubCategoryWithOutStatus_Result">
+          <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+          <Property Type="Byte" Name="Status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FetchAllTrendingCourses_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="Byte" Name="Trending" Nullable="true" />
+          <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+          <Property Type="Int32" Name="ExamCount" Nullable="true" />
+          <Property Type="Int32" Name="Training" Nullable="true" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="300" />
+        </ComplexType>
+        <ComplexType Name="FetchCourseDetailsBasedOnCourseID_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="PartnerID" Nullable="true" />
+          <Property Type="String" Name="Overview" Nullable="true" />
+          <Property Type="String" Name="Benefits" Nullable="true" />
+          <Property Type="String" Name="Metatitle" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="Metakeywords" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="Metadescription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Uniquename" Nullable="true" MaxLength="320" />
+          <Property Type="DateTime" Name="Createddate" Nullable="true" />
+          <Property Type="DateTime" Name="Createddatetime" Nullable="true" />
+          <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="Lastupdateddate" Nullable="true" />
+          <Property Type="DateTime" Name="Lastupdateddatetime" Nullable="true" />
+          <Property Type="Int32" Name="Lastupdateduser" Nullable="true" />
+          <Property Type="Byte" Name="Trending" Nullable="true" />
+          <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FetchCourseMaster_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+          <Property Type="Int32" Name="PartnerID" Nullable="true" />
+          <Property Type="String" Name="Overview" Nullable="true" />
+          <Property Type="String" Name="Benefits" Nullable="true" />
+          <Property Type="String" Name="Metatitle" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="Metakeywords" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="Metadescription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Uniquename" Nullable="true" MaxLength="320" />
+          <Property Type="DateTime" Name="Createddate" Nullable="true" />
+          <Property Type="DateTime" Name="Createddatetime" Nullable="true" />
+          <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="Lastupdateddate" Nullable="true" />
+          <Property Type="DateTime" Name="Lastupdateddatetime" Nullable="true" />
+          <Property Type="Int32" Name="Lastupdateduser" Nullable="true" />
+          <Property Type="Byte" Name="Trending" Nullable="true" />
+          <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FetchCoursesToWebsite_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="Byte" Name="Trending" Nullable="true" />
+          <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+          <Property Type="Int32" Name="ExamCount" Nullable="true" />
+          <Property Type="Int32" Name="Training" Nullable="true" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="300" />
+        </ComplexType>
+        <ComplexType Name="FetchDocumentDetailsBasedOnCourseID_Result">
+          <Property Type="Int32" Name="DocumentID" Nullable="false" />
+          <Property Type="Int32" Name="CourseID" Nullable="true" />
+          <Property Type="String" Name="Path" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FetchExamDetailsBasedOnCourseID_Result">
+          <Property Type="Int32" Name="ExamID" Nullable="false" />
+          <Property Type="Int32" Name="CourseID" Nullable="true" />
+          <Property Type="Int32" Name="CountryID" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Examdate" Nullable="true" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="LastUpdateduser" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+          <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="FetchTrainingDetailsBasedOnCourseID_Result">
+          <Property Type="Int32" Name="TrainingID" Nullable="false" />
+          <Property Type="Int32" Name="CourseID" Nullable="true" />
+          <Property Type="Int32" Name="CountryID" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" />
+          <Property Type="DateTime" Name="Enddate" Nullable="true" />
+          <Property Type="String" Name="Duration" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="LastUpdateduser" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+          <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="ListCourseImages_Result">
+          <Property Type="Int32" Name="CourseImageId" Nullable="false" />
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="300" />
+          <Property Type="Byte" Name="IsDefault" Nullable="true" />
+          <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDateTime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SearchCourse_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Byte" Name="ShowOnline" Nullable="false" />
+          <Property Type="Byte" Name="Trending" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SearchMultiSubCategory_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="SubCategory" Nullable="true" MaxLength="200" />
+          <Property Type="Byte" Name="Status" Nullable="true" />
+          <Property Type="String" Name="LastUpdatedUser" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="SP_FetchAllSubCategory_Result">
+          <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="Byte" Name="Status" Nullable="true" />
+          <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+          <Property Type="Boolean" Name="Is_Active" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_Fetchcategorylist_Result">
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+          <Property Type="Byte" Name="Status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_FetchCourses_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Byte" Name="ShowOnline" Nullable="false" />
+          <Property Type="Byte" Name="Trending" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spCheckLoginUser_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="spFetchAllSubCategory_Result">
+          <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="Byte" Name="Status" Nullable="true" />
+          <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+          <Property Type="Boolean" Name="Is_Active" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spFetchImageDetailsBasedOnCourseID_Result">
+          <Property Type="Int32" Name="CourseImageId" Nullable="false" />
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="300" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spFetchSubCategoryByCategoryID_Result">
+          <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="spSearchCourse_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Byte" Name="ShowOnline" Nullable="false" />
+          <Property Type="Byte" Name="Trending" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spSelectAllCountry_Result">
+          <Property Type="Int32" Name="CountryID" Nullable="false" />
+          <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="FetchAllExamDetails_Result">
+          <Property Type="Int32" Name="ExamID" Nullable="false" />
+          <Property Type="Int32" Name="CourseID" Nullable="true" />
+          <Property Type="Int32" Name="CountryID" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Examdate" Nullable="true" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="LastUpdateduser" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FetchAllImages_Result">
+          <Property Type="Int32" Name="CourseImageId" Nullable="false" />
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="300" />
+          <Property Type="Byte" Name="IsDefault" Nullable="true" />
+          <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDateTime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FetchAllDocs_Result">
+          <Property Type="Int32" Name="DocumentID" Nullable="false" />
+          <Property Type="Int32" Name="CourseID" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Path" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+          <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CMPModelStoreContainer" CdmEntityContainer="CMPEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="CMPModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="CMPModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COUNTRies">
+            <EntityTypeMapping TypeName="CMPModel.COUNTRy">
+              <MappingFragment StoreEntitySet="COUNTRies">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COUNTRies1">
+            <EntityTypeMapping TypeName="CMPModel.COUNTRY1">
+              <MappingFragment StoreEntitySet="COUNTRY">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseDocuments">
+            <EntityTypeMapping TypeName="CMPModel.CourseDocument">
+              <MappingFragment StoreEntitySet="CourseDocuments">
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseImages">
+            <EntityTypeMapping TypeName="CMPModel.CourseImage">
+              <MappingFragment StoreEntitySet="CourseImages">
+                <ScalarProperty Name="CourseImageId" ColumnName="CourseImageId" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseMasters">
+            <EntityTypeMapping TypeName="CMPModel.CourseMaster">
+              <MappingFragment StoreEntitySet="CourseMaster">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="Overview" ColumnName="Overview" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="Metatitle" ColumnName="Metatitle" />
+                <ScalarProperty Name="Metakeywords" ColumnName="Metakeywords" />
+                <ScalarProperty Name="Metadescription" ColumnName="Metadescription" />
+                <ScalarProperty Name="Uniquename" ColumnName="Uniquename" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+                <ScalarProperty Name="Createddatetime" ColumnName="Createddatetime" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="Lastupdateddate" ColumnName="Lastupdateddate" />
+                <ScalarProperty Name="Lastupdateddatetime" ColumnName="Lastupdateddatetime" />
+                <ScalarProperty Name="Lastupdateduser" ColumnName="Lastupdateduser" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExamSchedules">
+            <EntityTypeMapping TypeName="CMPModel.ExamSchedule">
+              <MappingFragment StoreEntitySet="ExamSchedule">
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Examdate" ColumnName="Examdate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MultiSubCategories">
+            <EntityTypeMapping TypeName="CMPModel.MultiSubCategory">
+              <MappingFragment StoreEntitySet="MultiSubCategory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderMasters">
+            <EntityTypeMapping TypeName="CMPModel.OrderMaster">
+              <MappingFragment StoreEntitySet="OrderMaster">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Ordercode" ColumnName="Ordercode" />
+                <ScalarProperty Name="DateM" ColumnName="DateM" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Taxamount" ColumnName="Taxamount" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Mode" ColumnName="Mode" />
+                <ScalarProperty Name="EntityID" ColumnName="EntityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+                <ScalarProperty Name="ResponseMessage" ColumnName="ResponseMessage" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParnerMasters">
+            <EntityTypeMapping TypeName="CMPModel.ParnerMaster">
+              <MappingFragment StoreEntitySet="ParnerMaster">
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="CMPModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CMPModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainingSchedules">
+            <EntityTypeMapping TypeName="CMPModel.TrainingSchedule">
+              <MappingFragment StoreEntitySet="TrainingSchedule">
+                <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Enddate" ColumnName="Enddate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CMPModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddCourseImages" FunctionName="CMPModel.Store.AddCourseImages" />
+          <FunctionImportMapping FunctionImportName="DeleteCourseImages" FunctionName="CMPModel.Store.DeleteCourseImages" />
+          <FunctionImportMapping FunctionImportName="DeleteDocument" FunctionName="CMPModel.Store.DeleteDocument" />
+          <FunctionImportMapping FunctionImportName="DeleteExam" FunctionName="CMPModel.Store.DeleteExam" />
+          <FunctionImportMapping FunctionImportName="Deletetraining" FunctionName="CMPModel.Store.Deletetraining" />
+          <FunctionImportMapping FunctionImportName="FetchAllBootcamps" FunctionName="CMPModel.Store.FetchAllBootcamps">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchAllBootcamps_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Overview" ColumnName="Overview" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+                <ScalarProperty Name="ExamCount" ColumnName="ExamCount" />
+                <ScalarProperty Name="Training" ColumnName="Training" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchAllSubCategory" FunctionName="CMPModel.Store.FetchAllSubCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchAllSubCategory_Result">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="tset" ColumnName="tset" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchAllSubCategoryWithOutStatus" FunctionName="CMPModel.Store.FetchAllSubCategoryWithOutStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchAllSubCategoryWithOutStatus_Result">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchAllTrendingCourses" FunctionName="CMPModel.Store.FetchAllTrendingCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchAllTrendingCourses_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+                <ScalarProperty Name="ExamCount" ColumnName="ExamCount" />
+                <ScalarProperty Name="Training" ColumnName="Training" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchCourseDetailsBasedOnCourseID" FunctionName="CMPModel.Store.FetchCourseDetailsBasedOnCourseID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchCourseDetailsBasedOnCourseID_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="Overview" ColumnName="Overview" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="Metatitle" ColumnName="Metatitle" />
+                <ScalarProperty Name="Metakeywords" ColumnName="Metakeywords" />
+                <ScalarProperty Name="Metadescription" ColumnName="Metadescription" />
+                <ScalarProperty Name="Uniquename" ColumnName="Uniquename" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+                <ScalarProperty Name="Createddatetime" ColumnName="Createddatetime" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="Lastupdateddate" ColumnName="Lastupdateddate" />
+                <ScalarProperty Name="Lastupdateddatetime" ColumnName="Lastupdateddatetime" />
+                <ScalarProperty Name="Lastupdateduser" ColumnName="Lastupdateduser" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchCourseMaster" FunctionName="CMPModel.Store.FetchCourseMaster">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchCourseMaster_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="Overview" ColumnName="Overview" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="Metatitle" ColumnName="Metatitle" />
+                <ScalarProperty Name="Metakeywords" ColumnName="Metakeywords" />
+                <ScalarProperty Name="Metadescription" ColumnName="Metadescription" />
+                <ScalarProperty Name="Uniquename" ColumnName="Uniquename" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+                <ScalarProperty Name="Createddatetime" ColumnName="Createddatetime" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="Lastupdateddate" ColumnName="Lastupdateddate" />
+                <ScalarProperty Name="Lastupdateddatetime" ColumnName="Lastupdateddatetime" />
+                <ScalarProperty Name="Lastupdateduser" ColumnName="Lastupdateduser" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchCoursesToWebsite" FunctionName="CMPModel.Store.FetchCoursesToWebsite">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchCoursesToWebsite_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+                <ScalarProperty Name="ExamCount" ColumnName="ExamCount" />
+                <ScalarProperty Name="Training" ColumnName="Training" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchDocumentDetailsBasedOnCourseID" FunctionName="CMPModel.Store.FetchDocumentDetailsBasedOnCourseID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchDocumentDetailsBasedOnCourseID_Result">
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchExamDetailsBasedOnCourseID" FunctionName="CMPModel.Store.FetchExamDetailsBasedOnCourseID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchExamDetailsBasedOnCourseID_Result">
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Examdate" ColumnName="Examdate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchTrainingDetailsBasedOnCourseID" FunctionName="CMPModel.Store.FetchTrainingDetailsBasedOnCourseID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchTrainingDetailsBasedOnCourseID_Result">
+                <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Enddate" ColumnName="Enddate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertCourseMaster" FunctionName="CMPModel.Store.InsertCourseMaster" />
+          <FunctionImportMapping FunctionImportName="InsertDocument" FunctionName="CMPModel.Store.InsertDocument" />
+          <FunctionImportMapping FunctionImportName="InsertExam" FunctionName="CMPModel.Store.InsertExam" />
+          <FunctionImportMapping FunctionImportName="InsertTraining" FunctionName="CMPModel.Store.InsertTraining" />
+          <FunctionImportMapping FunctionImportName="ListCourseImages" FunctionName="CMPModel.Store.ListCourseImages">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.ListCourseImages_Result">
+                <ScalarProperty Name="CourseImageId" ColumnName="CourseImageId" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchCourse" FunctionName="CMPModel.Store.SearchCourse">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.SearchCourse_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchMultiSubCategory" FunctionName="CMPModel.Store.SearchMultiSubCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.SearchMultiSubCategory_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CMPModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="Sp_Create_Category" FunctionName="CMPModel.Store.Sp_Create_Category" />
+          <FunctionImportMapping FunctionImportName="SP_Create_Partner" FunctionName="CMPModel.Store.SP_Create_Partner" />
+          <FunctionImportMapping FunctionImportName="Sp_Create_SubCategory" FunctionName="CMPModel.Store.Sp_Create_SubCategory" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CMPModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CMPModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="SP_FetchAllSubCategory" FunctionName="CMPModel.Store.SP_FetchAllSubCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.SP_FetchAllSubCategory_Result">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Fetchcategorylist" FunctionName="CMPModel.Store.sp_Fetchcategorylist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.sp_Fetchcategorylist_Result">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_FetchCourses" FunctionName="CMPModel.Store.SP_FetchCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.SP_FetchCourses_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="CMPModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="CMPModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CMPModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="Sp_Update_Category" FunctionName="CMPModel.Store.Sp_Update_Category" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Partner" FunctionName="CMPModel.Store.SP_Update_Partner" />
+          <FunctionImportMapping FunctionImportName="Sp_Update_SubCategory" FunctionName="CMPModel.Store.Sp_Update_SubCategory" />
+          <FunctionImportMapping FunctionImportName="Sp_UpdateToggle" FunctionName="CMPModel.Store.Sp_UpdateToggle" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CMPModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="spCheckLoginUser" FunctionName="CMPModel.Store.spCheckLoginUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.spCheckLoginUser_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spFetchAllSubCategory" FunctionName="CMPModel.Store.spFetchAllSubCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.spFetchAllSubCategory_Result">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastUpdatedUser" ColumnName="LastUpdatedUser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spFetchImageDetailsBasedOnCourseID" FunctionName="CMPModel.Store.spFetchImageDetailsBasedOnCourseID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.spFetchImageDetailsBasedOnCourseID_Result">
+                <ScalarProperty Name="CourseImageId" ColumnName="CourseImageId" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spFetchSubCategoryByCategoryID" FunctionName="CMPModel.Store.spFetchSubCategoryByCategoryID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.spFetchSubCategoryByCategoryID_Result">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSearchCourse" FunctionName="CMPModel.Store.spSearchCourse">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.spSearchCourse_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ShowOnline" ColumnName="ShowOnline" />
+                <ScalarProperty Name="Trending" ColumnName="Trending" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSelectAllCountry" FunctionName="CMPModel.Store.spSelectAllCountry">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.spSelectAllCountry_Result">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUpdateCategoryStatus" FunctionName="CMPModel.Store.spUpdateCategoryStatus" />
+          <FunctionImportMapping FunctionImportName="spUpdateCourseMasterStatus" FunctionName="CMPModel.Store.spUpdateCourseMasterStatus" />
+          <FunctionImportMapping FunctionImportName="spUpdateCourseOnlineStatus" FunctionName="CMPModel.Store.spUpdateCourseOnlineStatus" />
+          <FunctionImportMapping FunctionImportName="spUpdatePartnerStatus" FunctionName="CMPModel.Store.spUpdatePartnerStatus" />
+          <FunctionImportMapping FunctionImportName="spUpdateSubCategoryStatus" FunctionName="CMPModel.Store.spUpdateSubCategoryStatus" />
+          <FunctionImportMapping FunctionImportName="UpdateCourseMaster" FunctionName="CMPModel.Store.UpdateCourseMaster" />
+          <FunctionImportMapping FunctionImportName="UpdateOverview" FunctionName="CMPModel.Store.UpdateOverview" />
+          <FunctionImportMapping FunctionImportName="FetchAllExamDetails" FunctionName="CMPModel.Store.FetchAllExamDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchAllExamDetails_Result">
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Examdate" ColumnName="Examdate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="LastUpdateduser" ColumnName="LastUpdateduser" />
+                <ScalarProperty Name="LastUpdatedDatetime" ColumnName="LastUpdatedDatetime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchAllImages" FunctionName="CMPModel.Store.FetchAllImages">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchAllImages_Result">
+                <ScalarProperty Name="CourseImageId" ColumnName="CourseImageId" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchAllDocs" FunctionName="CMPModel.Store.FetchAllDocs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMPModel.FetchAllDocs_Result">
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Update_Exam" FunctionName="CMPModel.Store.Sp_Update_Exam" />
+          <FunctionImportMapping FunctionImportName="ChangeCategoryStatus" FunctionName="CMPModel.Store.ChangeCategoryStatus" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

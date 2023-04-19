@@ -1,0 +1,22 @@
+.titleflex{
+  display: flex !important;
+  margin-top: 10px !important;
+}
+.Category,.mdes{
+  margin-left: 100px !important;
+  width: 500px !important;
+}
+#title,.mkey{
+  width: 500px !important;
+}
+.Sub-Category{
+width: 500px !important;
+}
+
+.Title,.editor,.overview,.Sub-Category,.mtitle,.mkey,.btn{
+  margin-left: 10px !important;
+}
+.mtitle{
+  width: 500px !important;
+  margin-top: 10px !important;
+}

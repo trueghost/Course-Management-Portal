@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="LastUpdatedUser" Type="Int32" />
+    <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <NavigationProperty Name="CourseMasters" Relationship="Self.FK_CourseMaster_Category" FromRole="Category" ToRole="CourseMaster" />
+    <NavigationProperty Name="SubCategories" Relationship="Self.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="COUNTRy">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="COUNTRY1">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CourseDocument">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="CreatedUser" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CourseImage">
+    <Key>
+      <PropertyRef Name="CourseImageId" />
+    </Key>
+    <Property Name="CourseImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="IsDefault" Type="Byte" />
+    <Property Name="CreatedUser" Type="Int32" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="CourseMaster">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="SubcategoryID" Type="Int32" />
+    <Property Name="PartnerID" Type="Int32" />
+    <Property Name="Overview" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Benefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Metatitle" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Metakeywords" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Metadescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Uniquename" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="0" />
+    <Property Name="Createddatetime" Type="DateTime" Precision="7" />
+    <Property Name="CreatedUser" Type="Int32" />
+    <Property Name="Lastupdateddate" Type="DateTime" Precision="0" />
+    <Property Name="Lastupdateddatetime" Type="DateTime" Precision="7" />
+    <Property Name="Lastupdateduser" Type="Int32" />
+    <Property Name="Trending" Type="Byte" />
+    <Property Name="ShowOnline" Type="Byte" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_CourseMaster_Category" FromRole="CourseMaster" ToRole="Category" />
+    <NavigationProperty Name="ParnerMaster" Relationship="Self.FK_CourseMaster_ParnerMaster" FromRole="CourseMaster" ToRole="ParnerMaster" />
+    <NavigationProperty Name="SubCategory" Relationship="Self.FK_CourseMaster_SubCategory" FromRole="CourseMaster" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="ExamSchedule">
+    <Key>
+      <PropertyRef Name="ExamID" />
+    </Key>
+    <Property Name="ExamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="Int32" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Examdate" Type="DateTime" Precision="0" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="LastUpdateduser" Type="Int32" />
+    <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="MultiSubCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="SubCategoryID" Type="Int32" />
+    <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="LastUpdatedUser" Type="Int32" />
+    <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="OrderMaster">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ordercode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DateM" Type="DateTime" Precision="0" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Taxamount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CourseID" Type="Int32" />
+    <Property Name="Mode" Type="Byte" />
+    <Property Name="EntityID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ResponseCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ResponseMessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ParnerMaster">
+    <Key>
+      <PropertyRef Name="PartnerID" />
+    </Key>
+    <Property Name="PartnerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <NavigationProperty Name="CourseMasters" Relationship="Self.FK_CourseMaster_ParnerMaster" FromRole="ParnerMaster" ToRole="CourseMaster" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="LastUpdatedUser" Type="Int32" />
+    <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
+    <NavigationProperty Name="CourseMasters" Relationship="Self.FK_CourseMaster_SubCategory" FromRole="SubCategory" ToRole="CourseMaster" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TrainingSchedule">
+    <Key>
+      <PropertyRef Name="TrainingID" />
+    </Key>
+    <Property Name="TrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="Int32" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="Enddate" Type="DateTime" Precision="0" />
+    <Property Name="Duration" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+    <Property Name="LastUpdateduser" Type="Int32" />
+    <Property Name="LastUpdatedDatetime" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDatetime" Type="DateTime" Precision="7" />
+  </EntityType>
+  <Association Name="FK_CourseMaster_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="CourseMaster">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseMaster_ParnerMaster">
+    <End Role="ParnerMaster" Type="Self.ParnerMaster" Multiplicity="0..1" />
+    <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParnerMaster">
+        <PropertyRef Name="PartnerID" />
+      </Principal>
+      <Dependent Role="CourseMaster">
+        <PropertyRef Name="PartnerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseMaster_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="CourseMaster" Type="Self.CourseMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="CourseMaster">
+        <PropertyRef Name="SubcategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CMPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="COUNTRies" EntityType="Self.COUNTRy" />
+    <EntitySet Name="COUNTRies1" EntityType="Self.COUNTRY1" />
+    <EntitySet Name="CourseDocuments" EntityType="Self.CourseDocument" />
+    <EntitySet Name="CourseImages" EntityType="Self.CourseImage" />
+    <EntitySet Name="CourseMasters" EntityType="Self.CourseMaster" />
+    <EntitySet Name="ExamSchedules" EntityType="Self.ExamSchedule" />
+    <EntitySet Name="MultiSubCategories" EntityType="Self.MultiSubCategory" />
+    <EntitySet Name="OrderMasters" EntityType="Self.OrderMaster" />
+    <EntitySet Name="ParnerMasters" EntityType="Self.ParnerMaster" />
+    <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TrainingSchedules" EntityType="Self.TrainingSchedule" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_CourseMaster_Category" Association="Self.FK_CourseMaster_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="CourseMaster" EntitySet="CourseMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="SubCategory" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseMaster_ParnerMaster" Association="Self.FK_CourseMaster_ParnerMaster">
+      <End Role="ParnerMaster" EntitySet="ParnerMasters" />
+      <End Role="CourseMaster" EntitySet="CourseMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseMaster_SubCategory" Association="Self.FK_CourseMaster_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategories" />
+      <End Role="CourseMaster" EntitySet="CourseMasters" />
+    </AssociationSet>
+    <FunctionImport Name="AddCourseImages">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="ImagePath" Mode="In" Type="String" />
+      <Parameter Name="IsDefault" Mode="In" Type="Byte" />
+      <Parameter Name="CreatedUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteCourseImages">
+      <Parameter Name="CourseImageId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteDocument">
+      <Parameter Name="DocumentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteExam">
+      <Parameter Name="ExamID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Deletetraining">
+      <Parameter Name="TrainingID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchAllBootcamps" ReturnType="Collection(CMPModel.FetchAllBootcamps_Result)">
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchAllSubCategory" ReturnType="Collection(CMPModel.FetchAllSubCategory_Result)" />
+    <FunctionImport Name="FetchAllSubCategoryWithOutStatus" ReturnType="Collection(CMPModel.FetchAllSubCategoryWithOutStatus_Result)" />
+    <FunctionImport Name="FetchAllTrendingCourses" ReturnType="Collection(CMPModel.FetchAllTrendingCourses_Result)">
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="Category" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchCourseDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.FetchCourseDetailsBasedOnCourseID_Result)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchCourseMaster" ReturnType="Collection(CMPModel.FetchCourseMaster_Result)" />
+    <FunctionImport Name="FetchCoursesToWebsite" ReturnType="Collection(CMPModel.FetchCoursesToWebsite_Result)">
+      <Parameter Name="Keyword" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="Int32" />
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchDocumentDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.FetchDocumentDetailsBasedOnCourseID_Result)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchExamDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.FetchExamDetailsBasedOnCourseID_Result)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchTrainingDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.FetchTrainingDetailsBasedOnCourseID_Result)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertCourseMaster" ReturnType="Collection(Int32)">
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="SubcategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="PartnerID" Mode="In" Type="Int32" />
+      <Parameter Name="Overview" Mode="In" Type="String" />
+      <Parameter Name="Benefits" Mode="In" Type="String" />
+      <Parameter Name="Metatitle" Mode="In" Type="String" />
+      <Parameter Name="Metakeywords" Mode="In" Type="String" />
+      <Parameter Name="Metadescription" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="Trending" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="InsertDocument" ReturnType="Collection(Int32)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="Path" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertExam" ReturnType="Collection(Int32)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="CountryID" Mode="In" Type="Int32" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+      <Parameter Name="Examdate" Mode="In" Type="DateTime" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertTraining" ReturnType="Collection(Int32)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="CountryID" Mode="In" Type="Int32" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Duration" Mode="In" Type="String" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ListCourseImages" ReturnType="Collection(CMPModel.ListCourseImages_Result)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchCourse" ReturnType="Collection(CMPModel.SearchCourse_Result)">
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="SubcategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchMultiSubCategory" ReturnType="Collection(CMPModel.SearchMultiSubCategory_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Create_Category">
+      <Parameter Name="CatName" Mode="In" Type="String" />
+      <Parameter Name="CatDes" Mode="In" Type="String" />
+      <Parameter Name="Create_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Updated_User" Mode="In" Type="Int32" />
+      <Parameter Name="Update_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+      <Parameter Name="Active" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Create_Partner">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Logo" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Create_SubCategory">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="CatId" Mode="In" Type="Int32" />
+      <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CreateUser" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Active" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_FetchAllSubCategory" ReturnType="Collection(CMPModel.SP_FetchAllSubCategory_Result)" />
+    <FunctionImport Name="sp_Fetchcategorylist" ReturnType="Collection(CMPModel.sp_Fetchcategorylist_Result)" />
+    <FunctionImport Name="SP_FetchCourses" ReturnType="Collection(CMPModel.SP_FetchCourses_Result)" />
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CMPModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CMPModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Update_Category">
+      <Parameter Name="CatId" Mode="In" Type="Int32" />
+      <Parameter Name="CatName" Mode="In" Type="String" />
+      <Parameter Name="Desc" Mode="In" Type="String" />
+      <Parameter Name="Updated_User" Mode="In" Type="Int32" />
+      <Parameter Name="Update_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Update_Partner">
+      <Parameter Name="PartnerId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Logo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Update_SubCategory">
+      <Parameter Name="SubCatId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="CatId" Mode="In" Type="Int32" />
+      <Parameter Name="CreateUser" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_UpdateToggle">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Domain" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="spCheckLoginUser" ReturnType="Collection(CMPModel.spCheckLoginUser_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spFetchAllSubCategory" ReturnType="Collection(CMPModel.spFetchAllSubCategory_Result)" />
+    <FunctionImport Name="spFetchImageDetailsBasedOnCourseID" ReturnType="Collection(CMPModel.spFetchImageDetailsBasedOnCourseID_Result)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spFetchSubCategoryByCategoryID" ReturnType="Collection(CMPModel.spFetchSubCategoryByCategoryID_Result)">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSearchCourse" ReturnType="Collection(CMPModel.spSearchCourse_Result)">
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="SubcategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSelectAllCountry" ReturnType="Collection(CMPModel.spSelectAllCountry_Result)" />
+    <FunctionImport Name="spUpdateCategoryStatus">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateCourseMasterStatus">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="Trending" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateCourseOnlineStatus">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="ShowOnline" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdatePartnerStatus">
+      <Parameter Name="PartnerID" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateSubCategoryStatus">
+      <Parameter Name="SubCategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateCourseMaster">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="SubcategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="PartnerID" Mode="In" Type="Int32" />
+      <Parameter Name="Overview" Mode="In" Type="String" />
+      <Parameter Name="Benefits" Mode="In" Type="String" />
+      <Parameter Name="Metatitle" Mode="In" Type="String" />
+      <Parameter Name="Metakeywords" Mode="In" Type="String" />
+      <Parameter Name="Metadescription" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="Trending" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOverview">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="Overview" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchAllExamDetails" ReturnType="Collection(CMPModel.FetchAllExamDetails_Result)" />
+    <FunctionImport Name="FetchAllImages" ReturnType="Collection(CMPModel.FetchAllImages_Result)" />
+    <FunctionImport Name="FetchAllDocs" ReturnType="Collection(CMPModel.FetchAllDocs_Result)" />
+    <FunctionImport Name="Sp_Update_Exam">
+      <Parameter Name="ExamID" Mode="In" Type="Int32" />
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+      <Parameter Name="CountryID" Mode="In" Type="Int32" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+      <Parameter Name="Examdate" Mode="In" Type="DateTime" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="LastUpdateduser" Mode="In" Type="Int32" />
+      <Parameter Name="LastUpdatedDatetime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ChangeCategoryStatus" ReturnType="Collection(String)">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="FetchAllBootcamps_Result">
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="Overview" Nullable="true" />
+    <Property Type="Byte" Name="Trending" Nullable="true" />
+    <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+    <Property Type="Int32" Name="ExamCount" Nullable="true" />
+    <Property Type="Int32" Name="Training" Nullable="true" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="FetchAllSubCategory_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+    <Property Type="Byte" Name="Status" Nullable="true" />
+    <Property Type="String" Name="tset" Nullable="false" MaxLength="4" />
+  </ComplexType>
+  <ComplexType Name="FetchAllSubCategoryWithOutStatus_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+    <Property Type="Byte" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchAllTrendingCourses_Result">
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+    <Property Type="Byte" Name="Trending" Nullable="true" />
+    <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+    <Property Type="Int32" Name="ExamCount" Nullable="true" />
+    <Property Type="Int32" Name="Training" Nullable="true" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="FetchCourseDetailsBasedOnCourseID_Result">
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="PartnerID" Nullable="true" />
+    <Property Type="String" Name="Overview" Nullable="true" />
+    <Property Type="String" Name="Benefits" Nullable="true" />
+    <Property Type="String" Name="Metatitle" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="Metakeywords" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="Metadescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Uniquename" Nullable="true" MaxLength="320" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" />
+    <Property Type="DateTime" Name="Createddatetime" Nullable="true" />
+    <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="Lastupdateddate" Nullable="true" />
+    <Property Type="DateTime" Name="Lastupdateddatetime" Nullable="true" />
+    <Property Type="Int32" Name="Lastupdateduser" Nullable="true" />
+    <Property Type="Byte" Name="Trending" Nullable="true" />
+    <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchCourseMaster_Result">
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+    <Property Type="Int32" Name="PartnerID" Nullable="true" />
+    <Property Type="String" Name="Overview" Nullable="true" />
+    <Property Type="String" Name="Benefits" Nullable="true" />
+    <Property Type="String" Name="Metatitle" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="Metakeywords" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="Metadescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Uniquename" Nullable="true" MaxLength="320" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" />
+    <Property Type="DateTime" Name="Createddatetime" Nullable="true" />
+    <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="Lastupdateddate" Nullable="true" />
+    <Property Type="DateTime" Name="Lastupdateddatetime" Nullable="true" />
+    <Property Type="Int32" Name="Lastupdateduser" Nullable="true" />
+    <Property Type="Byte" Name="Trending" Nullable="true" />
+    <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchCoursesToWebsite_Result">
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+    <Property Type="Byte" Name="Trending" Nullable="true" />
+    <Property Type="Byte" Name="ShowOnline" Nullable="true" />
+    <Property Type="Int32" Name="ExamCount" Nullable="true" />
+    <Property Type="Int32" Name="Training" Nullable="true" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="FetchDocumentDetailsBasedOnCourseID_Result">
+    <Property Type="Int32" Name="DocumentID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="true" />
+    <Property Type="String" Name="Path" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchExamDetailsBasedOnCourseID_Result">
+    <Property Type="Int32" Name="ExamID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="true" />
+    <Property Type="Int32" Name="CountryID" Nullable="true" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Examdate" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="LastUpdateduser" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="FetchTrainingDetailsBasedOnCourseID_Result">
+    <Property Type="Int32" Name="TrainingID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="true" />
+    <Property Type="Int32" Name="CountryID" Nullable="true" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" />
+    <Property Type="DateTime" Name="Enddate" Nullable="true" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="LastUpdateduser" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="ListCourseImages_Result">
+    <Property Type="Int32" Name="CourseImageId" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="300" />
+    <Property Type="Byte" Name="IsDefault" Nullable="true" />
+    <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDateTime" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SearchCourse_Result">
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Byte" Name="ShowOnline" Nullable="false" />
+    <Property Type="Byte" Name="Trending" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SearchMultiSubCategory_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategory" Nullable="true" MaxLength="200" />
+    <Property Type="Byte" Name="Status" Nullable="true" />
+    <Property Type="String" Name="LastUpdatedUser" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="SP_FetchAllSubCategory_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="Byte" Name="Status" Nullable="true" />
+    <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+    <Property Type="Boolean" Name="Is_Active" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Fetchcategorylist_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+    <Property Type="Byte" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_FetchCourses_Result">
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Byte" Name="ShowOnline" Nullable="false" />
+    <Property Type="Byte" Name="Trending" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spCheckLoginUser_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="spFetchAllSubCategory_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="Byte" Name="Status" Nullable="true" />
+    <Property Type="Int32" Name="LastUpdatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+    <Property Type="Boolean" Name="Is_Active" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spFetchImageDetailsBasedOnCourseID_Result">
+    <Property Type="Int32" Name="CourseImageId" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="300" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spFetchSubCategoryByCategoryID_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="spSearchCourse_Result">
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="Int32" Name="SubcategoryID" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Byte" Name="ShowOnline" Nullable="false" />
+    <Property Type="Byte" Name="Trending" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spSelectAllCountry_Result">
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="FetchAllExamDetails_Result">
+    <Property Type="Int32" Name="ExamID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="true" />
+    <Property Type="Int32" Name="CountryID" Nullable="true" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Examdate" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="LastUpdateduser" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedDatetime" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchAllImages_Result">
+    <Property Type="Int32" Name="CourseImageId" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="300" />
+    <Property Type="Byte" Name="IsDefault" Nullable="true" />
+    <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDateTime" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchAllDocs_Result">
+    <Property Type="Int32" Name="DocumentID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Path" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="CreatedDatetime" Nullable="true" />
+    <Property Type="Int32" Name="CreatedUser" Nullable="true" />
+  </ComplexType>
+</Schema>
